@@ -1,11 +1,17 @@
-/*primary color*/
-.bg-cream {
-    background-color: #FFF2E1;
+html {
+    scroll-behavior: smooth;
 }
+
 
 /*font*/
 body {
     font-family: 'Poppins', sans-serif;
+    /* transition: all 3s ease-in; */
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .bg-yellow-500 {
@@ -20,6 +26,9 @@ body {
     animation-iteration-count: infinite; 
     animation-timing-function: ease-in-out;
 } 
+.bg-cream {
+    background-color: #FFF2E1;
+}
 .cream {
     color: #2F327D;
     font-weight: 500;

@@ -51,18 +51,10 @@
 				<a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline"
 					href="#">Home</a>
 				<a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline"
-					href="./faq.html">FAQ</a>
-				<!-- <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline"
-					href="#">Blog</a> -->
-				<!-- <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline"
-					href="#">About Us</a> -->
-				<!-- <a class="px-10 py-3 mt-2 text-sm text-center bg-white text-gray-800 rounded-full md:mt-8 md:ml-4"
-					href="#">Login</a> -->
-				<!-- <a class="px-10 py-3 mt-2 text-sm text-center bg-yellow-500 text-white rounded-full md:mt-8 md:ml-4"
-					href="#">Sign Up</a> -->
+					href="#faq-section">FAQ</a>
 			</nav>
-			<a class="px-10 py-3 mt-2 text-sm text-center bg-yellow-500 text-white rounded-full md:mt-8 md:ml-4"
-					href="#">Sign Up</a>
+			<a class="z-10 px-10 py-3 mt-2 text-sm text-center bg-yellow-500 text-white rounded-full md:mt-8 md:ml-4"
+					href="#form-section">Register</a>
 		</div>
 	</div>
 	<div class="bg-cream">
@@ -83,18 +75,6 @@
 						class="lg:mx-0 bg-yellow-500 text-white text-xl font-bold rounded-full py-4 px-9 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out" href="#main">
 						Learn More
 					</a>
-					<div
-						class="flex items-center justify-center space-x-3 mt-5 md:mt-0 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out">
-						<button class="bg-white w-14 h-14 rounded-full flex items-center justify-center">
-							<svg class="w-5 h-5 ml-2" viewBox="0 0 24 28" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M22.5751 12.8097C23.2212 13.1983 23.2212 14.135 22.5751 14.5236L1.51538 27.1891C0.848878 27.5899 5.91205e-07 27.1099 6.25202e-07 26.3321L1.73245e-06 1.00123C1.76645e-06 0.223477 0.848877 -0.256572 1.51538 0.14427L22.5751 12.8097Z"
-									fill="#23BDEE" />
-							</svg>
-						</button>
-						<span class="cursor-pointer">Watch how it works</span>
-					</div>
 				</div>
 			</div>
 			<!--Right Col-->
@@ -154,9 +134,14 @@
 			<div class="bg-white w-full h-20 -mt-px"></div>
 		</div>
 	</div>
+	<a class="h-12 rounded-full w-12 bg-red-400 fixed bottom-14 right-10 z-50 flex items-center justify-center" href="#">
+		<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M11.5003 19.1668V3.8335M4.79199 10.5418L11.5003 3.8335L18.2087 10.5418" stroke="white" stroke-width="1.91667" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	</a>
 
 	<!-- container -->
-	<div class="main transition-all duration-300 ease-in-out" id="main">
+	<div class="main transition-all duration-300 ease-in-out pt-16" id="main">
 
 		<div class="sm:px-12 md:px-24 lg:px-40 pb-12 px-4">
 			<h6 class="text-center font-semibold">Troubling Report..</h6>
@@ -343,8 +328,8 @@
 				</p>
 			</div>
 		</section>
-		<section class="bg-cream cream sm:px-20 md:px-48 lg:px-72 py-12 pt-20 pb-28 px-4">
-			<form action="mailto:nicholasduadei14@gmail.com" onsubmit="sendEmail()">
+		<section class="bg-cream cream sm:px-20 md:px-48 lg:px-72 py-12 pt-20 pb-28 px-4" id="form-section">
+			<form action="mailto:nicholasduadei14@gmail.com" onsubmit="sendEmail()" id="form">
 				<h2 class="text-2xl mb-8 text-center">Interested? Fill and Submit the form below:</h2>
 				<input type="text" name="fname" id="fname" placeholder="First Name" required> 
 				<span  id="fname-p"></span> <br>
@@ -359,9 +344,9 @@
 				<button type="submit">Register</button>
 			  </form>
 		</section>
-		<section  class="sm:px-12 md:px-24 lg:px-40 pb-12 px-4">
+		<section  class="sm:px-12 md:px-24 lg:px-40 pb-12 px-4" id="faq-section">
 			<div class="w-full sm:w-10/12 md:w-3/4 mx-auto my-1 py-12">
-				<h2 class="text-xl font-semibold text-vnet-blue mb-4 text-center">Frequently Asked Questions</h2>
+				<h2 class="text-xl font-semibold text-vnet-blue mb-4 text-center" id="faq">Frequently Asked Questions</h2>
 				<ul class="flex flex-col">
 				  <li class="bg-white my-2 shadow-lg" x-data="accordion(1)">
 					<h2
