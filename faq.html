@@ -1,0 +1,266 @@
+<!-- component -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordion | TailwindCSS x AlpineJS </title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="./assets/styles/styles.css" /> -->
+    <!-- Alpine -->
+	<script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+	<script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
+    <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+    
+  </head>
+  <body class="h-screen bg-blue-50">
+    <main class="p-5 bg-light-blue">
+      <div class="flex justify-center items-start my-2">
+        <div class="w-full sm:w-10/12 md:w-1/2 my-1">
+          <h2 class="text-xl font-semibold text-vnet-blue mb-2">FAQ .</h2>
+          <ul class="flex flex-col">
+            <li class="bg-white my-2 shadow-lg" x-data="accordion(1)">
+              <h2
+                @click="handleClick()"
+                class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+              >
+                <span>When is the date and time of the training?</span>
+                <svg
+                  :class="handleRotate()"
+                  class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                </svg>
+              </h2>
+              <div
+                x-ref="tab"
+                :style="handleToggle()"
+                class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+              >
+                <p class="p-3 text-gray-900">
+                    The training will run ONLY on weekends (Saturdays and Sundays) throughout the month of October, 2022. Saturdays 10am - 4pm, Sundays 1:30pm - 5pm. 
+                </p>
+              </div>
+            </li>
+            <li class="bg-white my-2 shadow-lg" x-data="accordion(2)">
+              <h2
+                @click="handleClick()"
+                class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+              >
+                <span>How much does the training cost?</span>
+                <svg
+                  :class="handleRotate()"
+                  class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                </svg>
+              </h2>
+              <div
+                class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                x-ref="tab"
+                :style="handleToggle()"
+              >
+                <p class="p-3 text-gray-900">
+                    The training cost N450,000 because of its intensive nature. But BYS Graduate School (our partners) are subsidising the fee for only 12 lucky students. They are paying N300,000 for you and all you have to pay is N150,000 for the complete training.
+                </p>
+              </div>
+            </li>
+            <li class="bg-white my-2 shadow-lg" x-data="accordion(3)">
+              <h2
+                @click="handleClick()"
+                class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+              >
+                <span>Can I pay installmentally?</span>
+                <svg
+                  :class="handleRotate()"
+                  class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                </svg>
+              </h2>
+              <div
+                class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                x-ref="tab"
+                :style="handleToggle()"
+              >
+                <p class="p-3 text-gray-900">
+                    Yes, you can pay installmentally by making an initial payment of 50% which is equivalent to N75,000 and be a part of the class, however, you will not be issued your certificate, or gain access to the support group until the balance payment has been made. 
+                </p>
+              </div>
+            </li>
+            <li class="bg-white my-2 shadow-lg" x-data="accordion(4)">
+              <h2
+                @click="handleClick()"
+                class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+              >
+                <span>Is the certificate recognized?</span>
+                <svg
+                  :class="handleRotate()"
+                  class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                </svg>
+              </h2>
+              <div
+                class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                x-ref="tab"
+                :style="handleToggle()"
+              >
+                <p class="p-3 text-gray-900">
+                    Our Data Analytics certificate is internationally recognized and you can use it to boost your portfolio and also apply for a job anywhere and in any industry as a data analyst.
+                </p>
+              </div>
+            </li>
+            <li class="bg-white my-2 shadow-lg" x-data="accordion(5)">
+              <h2
+                @click="handleClick()"
+                class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+              >
+                <span>It is too expensive</span>
+                <svg
+                  :class="handleRotate()"
+                  class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                </svg>
+              </h2>
+              <div
+                class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                x-ref="tab"
+                :style="handleToggle()"
+              >
+                <p class="p-3 text-gray-900">
+                    If you feel investing N150,000 on yourself to acquire a skill that can take care of you for the rest of your life is too much, then this is not for you. 
+                </p>
+              </div>
+            </li>
+            <li class="bg-white my-2 shadow-lg" x-data="accordion(6)">
+              <h2
+                @click="handleClick()"
+                class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+              >
+                <span>Will you help me get a job after the training?</span>
+                <svg
+                  :class="handleRotate()"
+                  class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                </svg>
+              </h2>
+              <div
+                class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                x-ref="tab"
+                :style="handleToggle()"
+              >
+                <p class="p-3 text-gray-900">
+                    After the training we will add you to our support group where you will get access to other professional and certified Data analysts. The beauty is that in that group, we share job opportunities when we have them, but we cannot guarantee you a job. 
+                </p>
+              </div>
+            </li>
+            <li class="bg-white my-2 shadow-lg" x-data="accordion(7)">
+              <h2
+                @click="handleClick()"
+                class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+              >
+                <span>I don't have IT or programming experience.</span>
+                <svg
+                  :class="handleRotate()"
+                  class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                </svg>
+              </h2>
+              <div
+                class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                x-ref="tab"
+                :style="handleToggle()"
+              >
+                <p class="p-3 text-gray-900">
+                    So were many of our students who participated in our earlier editions but even they were amazed at how easy it was to learn when they made the commitment to learn. The training is well broken down and it is aimed at taking you from a total novice to a Data Analyst expert.
+                </p>
+              </div>
+            </li>
+            <li class="bg-white my-2 shadow-lg" x-data="accordion(8)">
+              <h2
+                @click="handleClick()"
+                class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+              >
+                <span>Where can I work as a data analyst?</span>
+                <svg
+                  :class="handleRotate()"
+                  class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                </svg>
+              </h2>
+              <div
+                class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                x-ref="tab"
+                :style="handleToggle()"
+              >
+                <p class="p-3 text-gray-900">
+                    There is no known industry in the world today that doesn't need a Data Analyst. From hospitality, education, banking and finances, ecommerce, health, etc. They all need data analysts and you can work in any industry. 
+                </p>
+              </div>
+            </li>
+            <li class="bg-white my-2 shadow-lg" x-data="accordion(9)">
+              <h2
+                @click="handleClick()"
+                class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+              >
+                <span>I have a 9-5 job, how will I keep up with the class?</span>
+                <svg
+                  :class="handleRotate()"
+                  class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                </svg>
+              </h2>
+              <div
+                class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                x-ref="tab"
+                :style="handleToggle()"
+              >
+                <p class="p-3 text-gray-900">
+                    This is why we slated the classes for weekends so it does not interfere with your job (if you currently have one).
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.store('accordion', {
+        tab: 0
+      });
+      
+      Alpine.data('accordion', (idx) => ({
+        init() {
+          this.idx = idx;
+        },
+        idx: -1,
+        handleClick() {
+          this.$store.accordion.tab = this.$store.accordion.tab === this.idx ? 0 : this.idx;
+        },
+        handleRotate() {
+          return this.$store.accordion.tab === this.idx ? 'rotate-180' : '';
+        },
+        handleToggle() {
+          return this.$store.accordion.tab === this.idx ? `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+        }
+      }));
+    })
+  </script>
+</html>
