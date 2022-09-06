@@ -66,13 +66,13 @@ body {
 
 button {
     color: rgb(255, 255, 255);
-    padding: 20px 70px;
-    width: 100%;
+    /* padding: 20px 70px; */
+    /* width: 100%; */
     border: none;
     border-radius: 10px;
     line-height: 1.5em;
     font-weight: 400;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     text-transform: uppercase;
     background-color: #252641;
     transition: all .5s ease-in;
