@@ -8,6 +8,7 @@ body {
     font-family: 'Poppins', sans-serif;
     /* transition: all 3s ease-in; */
     scroll-behavior: smooth;
+    /* background-color: rgb(231, 230, 230); */
 }
 
 ::-webkit-scrollbar {
@@ -27,10 +28,12 @@ body {
     animation-timing-function: ease-in-out;
 } 
 .bg-cream {
-    background-color: #FFF2E1;
+    /* background-color: #FFF2E1; */
+    background-color: #029602;;
 }
 .cream {
-    color: #2F327D;
+    color: white;
+    /* color: #2F327D; */
     font-weight: 500;
 }
 .steps {
