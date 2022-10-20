@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Data Science Landing Page</title>
+	<!-- Tailwind -->
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+	<!-- Alpine -->
+	<script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+	<script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
+	<script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+	<!-- AOS -->
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<!-- Custom style -->
+	<link rel="stylesheet" href="css/skilline.css?v=1" />
+	<!-- Poppins font -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="antialiased">
+	<!-- Meta Pixel Code -->
+<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '5557379041014172');
+	fbq('track', 'PageView');
+	fbq('track', 'Data Analysis LP');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=5557379041014172&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Meta Pixel Code -->
+	
+	<!-- navbar -->
+	<div x-data="{ open: false }" class="w-full text-gray-700 bg-white shadow-lg">
+		<div class="flex flex-col max-w-screen-xl px-8 mx-auto md:items-center md:justify-between md:flex-row">
+			<div class="flex flex-row items-center justify-between py-6">
+				<div class="relative">
+					<a href="#"
+						class="relative z-50 text-lg font-bold tracking-widest text-gray-900 rounded-lg focus:outline-none focus:shadow-outline">BYS Grad School</a>
+					<svg class="absolute z-40 h-12 -top-2 -left-3" viewBox="0 0 79 79" fill="none"
+						xmlns="http://www.w3.org/2000/svg" style="max-height: 3rem;">
+						<path
+							d="M35.2574 2.24264C37.6005 -0.100501 41.3995 -0.100505 43.7426 2.24264L76.7574 35.2574C79.1005 37.6005 79.1005 41.3995 76.7574 43.7426L43.7426 76.7574C41.3995 79.1005 37.6005 79.1005 35.2574 76.7574L2.24264 43.7426C-0.100501 41.3995 -0.100505 37.6005 2.24264 35.2574L35.2574 2.24264Z"
+							fill="#65DAFF" />
+					</svg>
+				</div>
+				<button class="p-2 rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open" style="background: #029602;">
+					<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6" style="max-height: 1.5rem;">
+						<path x-show="!open" fill-rule="evenodd"
+							d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+							clip-rule="evenodd"></path>
+						<path x-show="open" fill-rule="evenodd"
+							d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+							clip-rule="evenodd"></path>
+					</svg>
+				</button>
+			</div>
+			<nav :class="{ 'transform md:transform-none': !open, 'h-full': open }"
+				class="z-10 flex flex-col flex-grow h-0 duration-300 origin-top scale-y-0 md:h-auto md:items-center md:pb-0 md:flex md:justify-center md:flex-row">
+				<a class="px-4 py-2 text-sm bg-transparent rounded-lg md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline"
+					href="#">Home</a>
+				<a class="px-4 py-2 pb-4 text-sm bg-transparent rounded-lg md:pb-2 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline"
+					href="#faq-section">FAQ</a>
+			</nav>
+			<a class="z-10 hidden px-10 py-3 text-sm text-center text-white bg-green-500 rounded-full md:ml-4 md:block"
+					href="#form-section">Register</a>
+		</div>
+	</div>
+	
+	<a class="fixed z-50 flex items-center justify-center w-12 h-12 rounded-full bottom-14 right-10" href="#" style="background: #029602;">
+		<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M11.5003 19.1668V3.8335M4.79199 10.5418L11.5003 3.8335L18.2087 10.5418" stroke="white" stroke-width="1.91667" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	</a>
+
+	<!-- container -->
+	<div class="pt-12 transition-all duration-300 ease-in-out main" id="main">
+
+		<div class="px-4 sm:px-12 md:px-24 lg:px-40">
+			<h6 class="font-semibold text-center underline">Troubling Report..</h6>
+			<h1 class="my-4 text-3xl font-bold text-center">
+				Nigeria Unemployment Rate Set To Hit Record
+				33.3% In Q4 of 2022, However Major Companies Are
+				Desperately In Need Of More Skilled Workers.
+			</h1>
+			<h6 class="mb-12 font-semibold text-center underline">Here's What To Do Today..</h6>
+			<img class="max-h-52" src="./img/forecast.jpeg" alt="unemployment forecast">
+			<p class="mb-12 font-bold">SOURCE: Statistica.com</p>
+			<p class="">Dear Employees, Graduates and Job Seekers.</p>
+			<br><br>
+			<p class="">
+				Over the past few years, the Nigerian labour market has seen a massive surge in the rate of unemployment and according to studies, this has been a result of two major factors. <br><br><br>
+				First is the introduction and birthing of new technology..<br><br><br>
+			</p>
+			<p>With the birth and introduction of new technologies like Artificial intelligence (AI), Deep Learning (DL) Machine Learning,  IoT (Internet of Things) and the like, technology is fast replacing everyday human tasks. <br><br><br>
+				Here's an example from the banking industry.. <br><br><br>
+			</p>
+		</div>
+
+		<section class="px-4 py-12 bg-cream cream sm:px-12 md:px-24 lg:px-40">
+			<p>
+				As you might have noticed, ATMs are fast replacing cashiers, in that you can now simply find ATM machines around you where you can easily perform simple banking tasks ranging from cash withdrawals and bank transfers to more complex tasks like cash deposits. <br><br><br>
+				With these rapid changes, the smart question should be, what then happens to the
+				cashiers? <br><br><br>
+				Well, as you might have noticed, many of them had to be laid off. <br><br><br>
+			</p>
+			<p>Same thing with the customer service department. <br><br><br>
+				Machines are now responding to customer queries and resolving issues at a far
+				faster pace than humans without being tired, taking days off, asking for vacation, or
+				even asking for a raise. <br><br><br>
+				Faced with these, employers are forced to opt for the easier route. <br><br><br>
+				Which has to do with embracing more technology and narrowing down on human intervention which has invariably led to a massive increase in unemployment.  <br><br><br>
+				And this is not just happening in the banking industry, but across every known sector
+				you can think of. <br><br><br>
+				Letting you know that in today's labour market, you are competing less with humans
+				and more against machines. <br><br><br>
+				Secondly and even more sad is the fact that.. <br><br><br>
+				As technology is being embraced at scale, organisations are demanding a new kind
+				of skill set. <br><br><br>
+				One that allows them to tackle current organisational challenges in a more informed
+				way. <br><br><br>
+				Because as much as technology has made life easier, it has also created new problems, and solving these problems will require a new certain kind of skill set which unfortunately is not taught in our tertiary institutions. <br><br><br>
+				And according to a study from <span class="underline">indiaemployerforum.org</span>,
+			</p>
+		</section>
+		<section class="px-4 py-12 sm:px-12 md:px-24 lg:px-40">
+			<h2 class="my-4 mb-12 text-2xl font-bold text-center">
+				Unemployability Now Possesses An Even Greater Challenge Than Unemployment. 
+			</h2>
+			
+			To prove this, let us take a look at the area of data analysis.. The “Collection,
+			Processing and Interpretation of Data” <br><br><br>
+
+			Take a look at this JUNE 2022 report from <span class="underline">www.business.com</span> <br><br><br>
+			<img class="sm:ml-8 max-h-52" src="./img/bigdata.jpeg" alt="big data problem"> <br><br><br>
+			<p>Here's another one from Business Essentials.. <br><br><br></p>
+			<img class="max-h-265 sm:ml-8" src="./img/labour.jpeg" alt="labour market report"> <br><br><br>
+			<p>
+				In a recent interview, Thomas Goulding, Professor for Northeastern's Master Of Professional Studies In
+				Analytics Program had this to say.. <br><br><br>
+			</p>
+			<img class="max-h-32 sm:ml-8" src="./img/bigchallenge.jpeg" alt="big challenge in data analytics">
+		</section>
+
+		<section class="px-4 py-12 bg-cream cream sm:px-12 md:px-24 lg:px-40">
+			<p>
+				What does this tell you? <br><br><br>
+				Well, I'm sure you know by now. <br><br><br>
+				It is the fact that there is a massive shortage in the field of Data Analysis across industries and <br><br><br>
+				<h2>
+					Top Organisations Are More Than Willing To Pay You Bountifully As A Professionally Trained Data Analyst. 
+				</h2>
+				<br><br><br>
+				With that said, the next logical question becomes… <br><br><br>
+				“How Can I Become a Professional Data Analyst”?<br><br><br>
+				While there are many free online courses you can find on YouTube which you can
+				take.<br><br><br>
+				It is expedient for you to understand that these top organisations are very particular about where you obtained the skill and your certification from, because of how much the skill is almost being adulterated.<br><br><br>
+				Hence, aspiring data analysts and corporate brands have embraced qualified and
+				certified data analytics training firms to receive proper training. <br><br><br>
+				In a bid to help you acquire a high-paying soft skill that will help you secure a high-paying job as a professionally trained and certified data analyst and also help you boost your portfolio that will give you an edge in the current labour market.<br><br><br>
+				BYS Graduate School In Collaboration With Lead Leap Consulting is offering a… <br><br><br>
+			</p>
+		</section>
+		<section class="px-4 py-12 sm:px-12 md:px-24 lg:px-40">
+			<h2 class="my-4 mb-12 text-2xl font-bold text-center">
+				5 Weeks Intensive Intensive ALL IN ONE Data Analytics Training Using Microsoft Excel, Power BI, & SQL.
+			</h2>
+			<p>
+				Having trained and equipped well over 200,000 students (both offline and onsite)
+				across Nigeria, the United Kingdom, Canada, Kenya, the United States Of America, and
+				Australia with the finest, on-demand digital soft skills and trained a handful of
+				popular household brands like.. <br><br><br>
+			</p>
+			<div class="flex flex-wrap gap-4 overflow-hidden">
+				<img class="h-16" src="./img/flutter.jpeg" alt="flutter">
+				<img class="h-12" src="./img/oriflame.jpeg" alt="oriflame">
+				<img class="h-20" src="./img/jumia.jpeg" alt="jumia">
+				<img class="h-16" src="./img/phed.jpeg" alt="phed">
+				<img class="h-40" src="./img/chicken.jpeg" alt="chicken republic">
+				<img class="h-10" src="./img/leadway.jpeg" alt="leadway">
+				<img class="h-40" src="./img/fidson.jpeg" alt="fidson">
+				<img class="h-40" src="./img/lirs.jpeg" alt="lirs">
+				<img class="h-16" src="./img/cway.jpeg" alt="cway">
+				<img class="h-32" src="./img/medcourt.jpeg" alt="medcourt">
+			</div>
+		</section>
+		<section class="px-4 py-12 bg-cream cream sm:px-12 md:px-24 lg:px-40">
+			<p>
+				We are proud to say that when it comes to the area of human capacity development, we are a leading
+				organisation. <br><br><br>
+
+				And this November we are opening up the opportunity for aspiring data analysts like you to learn intensively, Master, and earn a certificate as a professionally trained Data Analyst.<br><br><br>
+				
+				This training is scheduled to commence in November 2022. and will hold during the weekends (Saturdays and Sundays) so it doesn't collide with your working hours.  <br><br><br>
+
+				Classes will be 100% virtual but very intensive..
+				
+				<!-- images will go here -->
+				<div class="flex flex-col my-16 overflow-hidden rounded-lg sm:h-96 sm:flex-row gap-4">
+					<img class="object-cover w-full h-full sm:w-1/2" src="./img/by1.jpg" alt="bys graduates 1">
+					<img class="object-cover w-full h-full sm:w-1/2" src="./img/by2.jpg" alt="bys graduates 2">
+				</div>
+
+				Many of our past students who are doing very well came in with no IT or Programming background, yet they were able to learn super fast and are now working in several organisations across various industries while others have used it to get promoted in their place of work. 
+				<br><br><br>
+
+				So.. <br><br><br>
+
+				If you are sick and tired of walking under the fierce heat of the sun with your brown envelope in search of a job.. <br><br><br>
+				
+				If you are desperately tired of jumping from one job opportunity site to the other with nothing to show for it.. <br><br><br>
+
+				If you are tired of watching your colleagues being promoted while you are there watching in hope, pain and frustration.. <br><br><br>
+				
+				If you are tired of receiving the same salary year after year, over and over again while bills are family expenses are steadily skyrocketing.<br><br><br>
+				
+				Then click on the link below to download a FREE Course Outline containing full details about the training and one of our consultants will get across to you. <br><br><br>
+			</p>
+		</section>
+		<section class="px-4 py-12 sm:px-12 md:px-24 lg:px-40">
+			<h2 class="my-4 text-2xl font-bold text-center">Hurry Now…</h2>
+			<div>
+				Here's why <br><br><br>
+
+				For the Month of November, we are partnering with BYS Graduate School (a private human capacity development organisation) to subsidise a whopping 25% discount on our training FEE to a small group of persons to help them ease the financial constrain.  <br><br><br>
+				
+				The subsidised rate is however available to ONLY 12 Persons.<br><br><br>
+
+				To qualify for this discount offer…<br><br><br>
+
+				Kindly follow the instructions below:<br><br><br>
+				
+				<div class="mb-8">
+					<span class="font-semibold">Step 1</span>
+					<p class="p-4 my-2 border-l-2 steps">
+						Fill in your details below and Download the FREE course outline and go through it completely. 
+					</p>
+				</div>
+				<div class="mb-8">
+					<span class="font-semibold">Step 2</span>
+					<p class="p-4 my-2 border-l-2 steps">
+						Make up your mind if you are willing and ready to make the discounted financial and time commitment for the training. 
+					</p>
+				</div>
+				<div class="mb-8">
+					<span class="font-semibold">Step 3</span>
+					<p class="p-4 my-2 border-l-2 steps">
+						Once you are clear that you will like to go ahead with this, look at the last page of the course outline and you will find your SECRET UNIQUE DISCOUNT CODE. Text that code to 08025131514 via SMS.. (I'll advise you copy or screenshot this page)
+					</p>
+				</div>
+				<p class="mt-8">
+					As soon as you have completed this process, you will receive a reply from one of our training consultants within 30 minutes scheduling you for a 15-minute FREE consultation call to see if you qualify for this discount offer.  <br><br><br>
+					
+					The training cost N200,000 (four hundred and fifty thousand naira only)..<br><br><br>
+					<!-- check cost later -->
+					
+					However, if you do qualify after the interview session, you will not have to pay that amount, but just a fraction investment of N150,000.<br><br><br>
+
+					That's a whopping N50,000 naira paid for by BGS Graduate School..<br><br><br>
+					
+					If you do not receive a reply after 24 hours, then it means you were not among the Lucky 12.<br><br><br>
+
+					So, click on the link below to download the FREE Course Outline and also find your SECRET UNIQUE DISCOUNT CODE. <br><br><br>
+
+					Best of luck. <br><br><br>
+					
+					<p class="p-2 text-center text-white bg-red-500">PS: Entry closes by 12 Midnight on <span id="closing-time"></span></p>
+					
+				</p>
+			</div>
+		</section>
+		<section class="px-4 py-12 pt-20 bg-cream cream sm:px-12 md:px-24 lg:px-36 pb-28" id="form-section">
+			<!-- <form action="" onsubmit="sendEmail()" id="form">
+				<h2 class="mb-8 text-2xl text-center">Interested? Fill and Submit the form below:</h2>
+				<input type="text" name="fname" id="fname" placeholder="First Name" required> 
+				<span  id="fname-p"></span> <br>
+				
+				<input type="text" name="lname" id="lname" placeholder="Last Name" required> 
+				<span  id="lname-p"></span><br>
+				
+				<input type="email" name="email" id="email" placeholder="Email" required> 
+				<span  id="email-p"></span><br>
+				
+				<input type="tel" name="phone" id="phone" placeholder="Phone number" required>
+				<button type="submit">Register</button>
+			  </form> -->
+		<script type="text/javascript" src="https://form.jotform.com/jsform/222481800579055"></script>
+		</section>
+		<section  class="px-4 pb-12 sm:px-12 md:px-24 lg:px-40" id="faq-section">
+			<div class="w-full py-12 mx-auto my-1 sm:w-10/12 md:w-3/4">
+				<h2 class="mb-4 text-xl font-semibold text-center text-vnet-blue" id="faq">Frequently Asked Questions</h2>
+				<ul class="flex flex-col">
+				  <li class="my-2 bg-white shadow-lg" x-data="accordion(1)">
+					<h2
+					  @click="handleClick()"
+					  class="flex flex-row items-center justify-between p-3 font-semibold cursor-pointer"
+					>
+					  <span>When is the date and time of the training?</span>
+					  <svg
+						:class="handleRotate()"
+						class="w-6 h-6 text-purple-700 transition-transform duration-500 transform fill-current"
+						viewBox="0 0 20 20"
+					  >
+						<path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+					  </svg>
+					</h2>
+					<div
+					  x-ref="tab"
+					  :style="handleToggle()"
+					  class="overflow-hidden transition-all duration-500 border-l-2 border-purple-600 max-h-0"
+					>
+					  <p class="p-3 text-gray-900">
+						  The training will run ONLY on weekends (Saturdays and Sundays) throughout the month of October, 2022. Saturdays 10am - 4pm, Sundays 1:30pm - 5pm. 
+					  </p>
+					</div>
+				  </li>
+				  <li class="my-2 bg-white shadow-lg" x-data="accordion(2)">
+					<h2
+					  @click="handleClick()"
+					  class="flex flex-row items-center justify-between p-3 font-semibold cursor-pointer"
+					>
+					  <span>How much does the training cost?</span>
+					  <svg
+						:class="handleRotate()"
+						class="w-6 h-6 text-purple-700 transition-transform duration-500 transform fill-current"
+						viewBox="0 0 20 20"
+					  >
+						<path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+					  </svg>
+					</h2>
+					<div
+					  class="overflow-hidden transition-all duration-500 border-l-2 border-purple-600 max-h-0"
+					  x-ref="tab"
+					  :style="handleToggle()"
+					>
+					  <p class="p-3 text-gray-900">
+						The training cost N200,000 because of the intensive nature of the program. But BYS Graduate School (our partner) are subsidising the fee for only 12 lucky students. They are paying N50,000 for you and all you have to pay is N150,000 for the complete training. 
+					  </p>
+					</div>
+				  </li>
+				  <li class="my-2 bg-white shadow-lg" x-data="accordion(3)">
+					<h2
+					  @click="handleClick()"
+					  class="flex flex-row items-center justify-between p-3 font-semibold cursor-pointer"
+					>
+					  <span>Can I pay installmentally?</span>
+					  <svg
+						:class="handleRotate()"
+						class="w-6 h-6 text-purple-700 transition-transform duration-500 transform fill-current"
+						viewBox="0 0 20 20"
+					  >
+						<path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+					  </svg>
+					</h2>
+					<div
+					  class="overflow-hidden transition-all duration-500 border-l-2 border-purple-600 max-h-0"
+					  x-ref="tab"
+					  :style="handleToggle()"
+					>
+					  <p class="p-3 text-gray-900">
+						  Yes, you can pay installmentally by making an initial payment of 50% which is equivalent to N75,000 and be a part of the class, however, you will not be issued your certificate, or gain access to the support group until the balance payment has been made. 
+					  </p>
+					</div>
+				  </li>
+				  <li class="my-2 bg-white shadow-lg" x-data="accordion(4)">
+					<h2
+					  @click="handleClick()"
+					  class="flex flex-row items-center justify-between p-3 font-semibold cursor-pointer"
+					>
+					  <span>Is the certificate recognized?</span>
+					  <svg
+						:class="handleRotate()"
+						class="w-6 h-6 text-purple-700 transition-transform duration-500 transform fill-current"
+						viewBox="0 0 20 20"
+					  >
+						<path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+					  </svg>
+					</h2>
+					<div
+					  class="overflow-hidden transition-all duration-500 border-l-2 border-purple-600 max-h-0"
+					  x-ref="tab"
+					  :style="handleToggle()"
+					>
+					  <p class="p-3 text-gray-900">
+						  Our Data Analytics certificate is internationally recognized and you can use it to boost your portfolio and also apply for a job anywhere and in any industry as a data analyst.
+					  </p>
+					</div>
+				  </li>
+				  <li class="my-2 bg-white shadow-lg" x-data="accordion(5)">
+					<h2
+					  @click="handleClick()"
+					  class="flex flex-row items-center justify-between p-3 font-semibold cursor-pointer"
+					>
+					  <span>It is too expensive</span>
+					  <svg
+						:class="handleRotate()"
+						class="w-6 h-6 text-purple-700 transition-transform duration-500 transform fill-current"
+						viewBox="0 0 20 20"
+					  >
+						<path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+					  </svg>
+					</h2>
+					<div
+					  class="overflow-hidden transition-all duration-500 border-l-2 border-purple-600 max-h-0"
+					  x-ref="tab"
+					  :style="handleToggle()"
+					>
+					  <p class="p-3 text-gray-900">
+						If you feel investing N150,000 in yourself to acquire a skill that can take care of you for the rest of your life is too much, then this is not for you.  
+					  </p>
+					</div>
+				  </li>
+				  <li class="my-2 bg-white shadow-lg" x-data="accordion(6)">
+					<h2
+					  @click="handleClick()"
+					  class="flex flex-row items-center justify-between p-3 font-semibold cursor-pointer"
+					>
+					  <span>Will you help me get a job after the training?</span>
+					  <svg
+						:class="handleRotate()"
+						class="w-6 h-6 text-purple-700 transition-transform duration-500 transform fill-current"
+						viewBox="0 0 20 20"
+					  >
+						<path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+					  </svg>
+					</h2>
+					<div
+					  class="overflow-hidden transition-all duration-500 border-l-2 border-purple-600 max-h-0"
+					  x-ref="tab"
+					  :style="handleToggle()"
+					>
+					  <p class="p-3 text-gray-900">
+						After the training, we will add you to our support group where you will get access to other professional and certified Data analysts. The beauty is that in that group, we share and expose you to Data Analysis job opportunities when we have them, but we cannot guarantee you a job.  
+					  </p>
+					</div>
+				  </li>
+				  <li class="my-2 bg-white shadow-lg" x-data="accordion(7)">
+					<h2
+					  @click="handleClick()"
+					  class="flex flex-row items-center justify-between p-3 font-semibold cursor-pointer"
+					>
+					  <span>I don't have IT or programming experience.</span>
+					  <svg
+						:class="handleRotate()"
+						class="w-6 h-6 text-purple-700 transition-transform duration-500 transform fill-current"
+						viewBox="0 0 20 20"
+					  >
+						<path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+					  </svg>
+					</h2>
+					<div
+					  class="overflow-hidden transition-all duration-500 border-l-2 border-purple-600 max-h-0"
+					  x-ref="tab"
+					  :style="handleToggle()"
+					>
+					  <p class="p-3 text-gray-900">
+						  So were many of our students who participated in our earlier editions but even they were amazed at how easy it was to learn when they made the commitment to learn. The training is well broken down and it is aimed at taking you from a total novice to a Data Analyst expert.
+					  </p>
+					</div>
+				  </li>
+				  <li class="my-2 bg-white shadow-lg" x-data="accordion(8)">
+					<h2
+					  @click="handleClick()"
+					  class="flex flex-row items-center justify-between p-3 font-semibold cursor-pointer"
+					>
+					  <span>Where can I work as a data analyst?</span>
+					  <svg
+						:class="handleRotate()"
+						class="w-6 h-6 text-purple-700 transition-transform duration-500 transform fill-current"
+						viewBox="0 0 20 20"
+					  >
+						<path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+					  </svg>
+					</h2>
+					<div
+					  class="overflow-hidden transition-all duration-500 border-l-2 border-purple-600 max-h-0"
+					  x-ref="tab"
+					  :style="handleToggle()"
+					>
+					  <p class="p-3 text-gray-900">
+						  There is no known industry in the world today that doesn't need a Data Analyst. From hospitality, education, banking and finances, ecommerce, health, etc. They all need data analysts and you can work in any industry. 
+					  </p>
+					</div>
+				  </li>
+				  <li class="my-2 bg-white shadow-lg" x-data="accordion(9)">
+					<h2
+					  @click="handleClick()"
+					  class="flex flex-row items-center justify-between p-3 font-semibold cursor-pointer"
+					>
+					  <span>I have a 9-5 job, how will I keep up with the class?</span>
+					  <svg
+						:class="handleRotate()"
+						class="w-6 h-6 text-purple-700 transition-transform duration-500 transform fill-current"
+						viewBox="0 0 20 20"
+					  >
+						<path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+					  </svg>
+					</h2>
+					<div
+					  class="overflow-hidden transition-all duration-500 border-l-2 border-purple-600 max-h-0"
+					  x-ref="tab"
+					  :style="handleToggle()"
+					>
+					  <p class="p-3 text-gray-900">
+						  This is why we slated the classes for weekends so it does not interfere with your job (if you currently have one).
+					  </p>
+					</div>
+				  </li>
+				</ul>
+			</div>
+		</section>
+
+	</div>
+	<!-- .container -->
+
+	<footer class="" style="background-color: rgba(37, 38, 65, 1);">
+		<div class="max-w-lg mx-auto">
+			<div class="flex items-center justify-center px-20 py-12 text-white sm:px-36">
+				<div class="relative">
+					<h1 class="relative z-50 pr-5 text-xl font-bold">Dodorian</h1>
+					<svg class="absolute z-40 w-11 h-11 -top-2 -left-3" viewBox="0 0 79 79" fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M35.9645 2.94975C37.9171 0.997129 41.0829 0.997127 43.0355 2.94975L76.0502 35.9645C78.0029 37.9171 78.0029 41.0829 76.0503 43.0355L43.0355 76.0502C41.0829 78.0029 37.9171 78.0029 35.9645 76.0503L2.94975 43.0355C0.997129 41.0829 0.997127 37.9171 2.94975 35.9645L35.9645 2.94975Z"
+							stroke="#26C1F2" stroke-width="2" />
+					</svg>
+				</div>
+				<span class="py-2 pl-5 text-sm font-semibold border-l border-gray-500">Virtual Classes</span>
+			</div>
+			<!-- <div class="pt-5 pb-16 text-center">
+				<label class="font-semibold text-gray-300">Subscribe to get our Newsletter</label>
+				<div
+					class="flex flex-col justify-center px-5 mt-3 space-y-3 sm:px-0 sm:flex-row sm:space-x-3 sm:space-y-0">
+					<input type="email" placeholder="Your Email"
+						class="py-2 pl-5 bg-transparent border border-gray-400 rounded-full">
+					<button type="submit"
+						class="w-40 px-5 py-2 mx-auto font-semibold text-white rounded-full sm:w-auto sm:mx-0"
+						style="background: linear-gradient(105.5deg, #545AE7 19.57%, #393FCF 78.85%);">Subscribe</button>
+				</div>
+			</div> -->
+			<div class="flex items-center justify-center text-sm text-gray-400">
+				<a href="" class="pr-3">Careers</a>
+				<a href="" class="px-3 border-l border-gray-400">Privacy</a>
+				<a href="" class="pl-3 border-l border-gray-400">Terms & Conditions</a>
+			</div>
+			<div class="text-center text-white">
+				<p class="my-3 text-sm text-gray-400">&copy; 2022 BYS Graduate School </p>
+				<div class="py-3 tracking-wide">
+					<p>Developed By <span class="font-semibold">Dodorian Concept Ltd.</span></p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- AOS init -->
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+	<!-- <script src=
+    "https://smtpjs.com/v3/smtp.js">
+  </script>
+  -->
+  	<script type="text/javascript"
+  		src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js">
+	</script>
+	<script type="text/javascript">
+		(function(){
+			emailjs.init("TUn081Y358ClGyXNn"); //use your USER ID
+		})();
+	</script>
+  	<script type="text/javascript">
+		function sendEmail() {
+			let form = document.forms[0];
+			const fname = form.elements["fname"];
+			const lname = form.elements["lname"];
+			const email = form.elements["email"];
+			const phone = form.elements["phone"];  
+
+			var templateParams = {
+				to_name: 'Michael',
+				fname: fname.value,
+				lname: lname.value,
+				email: email.value,
+				phone: phone.value
+			};
+			console.log(templateParams)
+			emailjs.send('service_nds1vxb', 'template_oh8rigj', templateParams) //Insert your email service ID and email template ID
+				.then(function(response) {
+					console.log('SUCCESS!', response.status, response.text);
+					alert("Your Registration was successful");
+					fname.value = ""
+					lname.value= ""
+					email.value = ""
+					phone.value = ""
+				}, function(error) {
+						console.log('FAILED...', error);
+				});
+		}
+
+		document.addEventListener('alpine:init', () => {
+			Alpine.store('accordion', {
+				tab: 0
+			});
+			
+			Alpine.data('accordion', (idx) => ({
+				init() {
+				this.idx = idx;
+				},
+				idx: -1,
+				handleClick() {
+				this.$store.accordion.tab = this.$store.accordion.tab === this.idx ? 0 : this.idx;
+				},
+				handleRotate() {
+				return this.$store.accordion.tab === this.idx ? 'rotate-180' : '';
+				},
+				handleToggle() {
+				return this.$store.accordion.tab === this.idx ? `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+				}
+			}));
+			})
+
+			const closing = document.getElementById("closing-time");
+			var today = new Date();
+			console.log(String(today).slice(4,7), typeof String(today))
+			var dd = String(today.getDate()).padStart(2, '0');
+			var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+			var yyyy = today.getFullYear();
+
+			today =  String(today).slice(4,7) + " " + dd + ", " + yyyy; 
+			// mm + '/' + dd + '/' + yyyy;
+			closing.textContent = today;
+  	</script>
+
+</body>
+
+</html>
